@@ -15,6 +15,11 @@
 		44A2DBBA1C9691030086D778 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44A2DBB81C9691030086D778 /* LaunchScreen.storyboard */; };
 		44A2DBC51C9691040086D778 /* iOS_Animations_by_treewalkerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A2DBC41C9691040086D778 /* iOS_Animations_by_treewalkerTests.m */; };
 		44A2DBD01C9691040086D778 /* iOS_Animations_by_treewalkerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A2DBCF1C9691040086D778 /* iOS_Animations_by_treewalkerUITests.m */; };
+		44A2DBE21C9696D00086D778 /* black_cat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44A2DBDE1C9696D00086D778 /* black_cat@2x.png */; };
+		44A2DBE31C9696D00086D778 /* cat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44A2DBDF1C9696D00086D778 /* cat@2x.png */; };
+		44A2DBE41C9696D00086D778 /* face_cat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44A2DBE01C9696D00086D778 /* face_cat@2x.png */; };
+		44A2DBE51C9696D00086D778 /* love_cat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44A2DBE11C9696D00086D778 /* love_cat@2x.png */; };
+		44D3D3FC1C97DA8B0026EE98 /* back_ground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44D3D3FB1C97DA8B0026EE98 /* back_ground@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,11 @@
 		44A2DBCB1C9691040086D778 /* iOS-Animations-by-treewalkerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-Animations-by-treewalkerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44A2DBCF1C9691040086D778 /* iOS_Animations_by_treewalkerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_Animations_by_treewalkerUITests.m; sourceTree = "<group>"; };
 		44A2DBD11C9691040086D778 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44A2DBDE1C9696D00086D778 /* black_cat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black_cat@2x.png"; sourceTree = "<group>"; };
+		44A2DBDF1C9696D00086D778 /* cat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cat@2x.png"; sourceTree = "<group>"; };
+		44A2DBE01C9696D00086D778 /* face_cat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "face_cat@2x.png"; sourceTree = "<group>"; };
+		44A2DBE11C9696D00086D778 /* love_cat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "love_cat@2x.png"; sourceTree = "<group>"; };
+		44D3D3FB1C97DA8B0026EE98 /* back_ground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_ground@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +91,7 @@
 		44A2DB9E1C9691030086D778 = {
 			isa = PBXGroup;
 			children = (
+				44A2DBDD1C9696C00086D778 /* Image */,
 				44A2DBA91C9691030086D778 /* iOS-Animations-by-treewalker */,
 				44A2DBC31C9691040086D778 /* iOS-Animations-by-treewalkerTests */,
 				44A2DBCE1C9691040086D778 /* iOS-Animations-by-treewalkerUITests */,
@@ -138,6 +149,18 @@
 				44A2DBD11C9691040086D778 /* Info.plist */,
 			);
 			path = "iOS-Animations-by-treewalkerUITests";
+			sourceTree = "<group>";
+		};
+		44A2DBDD1C9696C00086D778 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				44D3D3FB1C97DA8B0026EE98 /* back_ground@2x.png */,
+				44A2DBDE1C9696D00086D778 /* black_cat@2x.png */,
+				44A2DBDF1C9696D00086D778 /* cat@2x.png */,
+				44A2DBE01C9696D00086D778 /* face_cat@2x.png */,
+				44A2DBE11C9696D00086D778 /* love_cat@2x.png */,
+			);
+			name = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,7 +267,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				44A2DBBA1C9691030086D778 /* LaunchScreen.storyboard in Resources */,
+				44A2DBE21C9696D00086D778 /* black_cat@2x.png in Resources */,
 				44A2DBB71C9691030086D778 /* Assets.xcassets in Resources */,
+				44A2DBE31C9696D00086D778 /* cat@2x.png in Resources */,
+				44A2DBE51C9696D00086D778 /* love_cat@2x.png in Resources */,
+				44A2DBE41C9696D00086D778 /* face_cat@2x.png in Resources */,
+				44D3D3FC1C97DA8B0026EE98 /* back_ground@2x.png in Resources */,
 				44A2DBB51C9691030086D778 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +524,7 @@
 				44A2DBD61C9691040086D778 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		44A2DBD71C9691040086D778 /* Build configuration list for PBXNativeTarget "iOS-Animations-by-treewalkerTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +533,7 @@
 				44A2DBD91C9691040086D778 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		44A2DBDA1C9691040086D778 /* Build configuration list for PBXNativeTarget "iOS-Animations-by-treewalkerUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +542,7 @@
 				44A2DBDC1C9691040086D778 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
