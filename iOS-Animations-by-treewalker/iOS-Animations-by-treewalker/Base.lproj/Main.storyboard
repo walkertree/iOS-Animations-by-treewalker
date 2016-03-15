@@ -25,6 +25,10 @@
                                 <rect key="frame" x="253" y="491" width="47" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face_cat.png" id="Fz2-lS-qYB">
+                                <rect key="frame" x="245" y="20" width="63" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入" textAlignment="natural" minimumFontSize="17" id="X2q-a6-5t7">
                                 <rect key="frame" x="61" y="122" width="199" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -42,6 +46,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="login"/>
+                                <connections>
+                                    <action selector="loginPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7nx-C0-pr5"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TREE WALKER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ITh-t3-3tW">
                                 <rect key="frame" x="85" y="71" width="150" height="21"/>
@@ -54,10 +61,10 @@
                                 <rect key="frame" x="20" y="28" width="70" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face_cat.png" id="Fz2-lS-qYB">
-                                <rect key="frame" x="245" y="20" width="63" height="57"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" id="cm4-2Y-oon">
+                                <rect key="frame" x="118" y="234" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -69,6 +76,7 @@
                         <outlet property="loginButton" destination="fmf-a3-DRf" id="xOn-aZ-LlC"/>
                         <outlet property="nameTextField" destination="X2q-a6-5t7" id="N3r-0Q-8Tm"/>
                         <outlet property="passwordTextField" destination="o7L-W8-Y1D" id="OPx-Uk-6cp"/>
+                        <outlet property="spinerView" destination="cm4-2Y-oon" id="cus-no-07R"/>
                         <outlet property="topLeftImage" destination="NmS-PU-nJt" id="Quz-4I-sWJ"/>
                         <outlet property="topRightImage" destination="Fz2-lS-qYB" id="Kyj-2h-OyB"/>
                     </connections>
