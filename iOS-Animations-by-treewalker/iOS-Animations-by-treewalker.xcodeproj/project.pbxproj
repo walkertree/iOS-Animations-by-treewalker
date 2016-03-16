@@ -20,6 +20,7 @@
 		44A2DBE41C9696D00086D778 /* face_cat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44A2DBE01C9696D00086D778 /* face_cat@2x.png */; };
 		44A2DBE51C9696D00086D778 /* love_cat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44A2DBE11C9696D00086D778 /* love_cat@2x.png */; };
 		44D3D3FC1C97DA8B0026EE98 /* back_ground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44D3D3FB1C97DA8B0026EE98 /* back_ground@2x.png */; };
+		44D3D3FF1C9803980026EE98 /* TransitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D3D3FE1C9803980026EE98 /* TransitionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		44A2DBE01C9696D00086D778 /* face_cat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "face_cat@2x.png"; sourceTree = "<group>"; };
 		44A2DBE11C9696D00086D778 /* love_cat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "love_cat@2x.png"; sourceTree = "<group>"; };
 		44D3D3FB1C97DA8B0026EE98 /* back_ground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_ground@2x.png"; sourceTree = "<group>"; };
+		44D3D3FD1C9803980026EE98 /* TransitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionViewController.h; sourceTree = "<group>"; };
+		44D3D3FE1C9803980026EE98 /* TransitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				44A2DBB81C9691030086D778 /* LaunchScreen.storyboard */,
 				44A2DBBB1C9691030086D778 /* Info.plist */,
 				44A2DBAA1C9691030086D778 /* Supporting Files */,
+				44D3D3FD1C9803980026EE98 /* TransitionViewController.h */,
+				44D3D3FE1C9803980026EE98 /* TransitionViewController.m */,
 			);
 			path = "iOS-Animations-by-treewalker";
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 			files = (
 				44A2DBB21C9691030086D778 /* ViewController.m in Sources */,
 				44A2DBAF1C9691030086D778 /* AppDelegate.m in Sources */,
+				44D3D3FF1C9803980026EE98 /* TransitionViewController.m in Sources */,
 				44A2DBAC1C9691030086D778 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

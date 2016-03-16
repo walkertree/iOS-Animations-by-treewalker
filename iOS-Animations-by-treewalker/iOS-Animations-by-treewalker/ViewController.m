@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "TransitionViewController.h"
+
+#define MESSAGE @[@"连接中",@"成功",@"失败"]
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundView;
@@ -20,6 +23,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *headLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinerView;
 
+
+@property (nonatomic, strong) UIImageView *imageViewConnecting;
+@property (nonatomic, strong) UILabel *labelConnecting;
+
 @end
 
 @implementation ViewController
@@ -30,12 +37,24 @@
     [self.passwordTextField addObserver:self forKeyPath:@"center" options:NSKeyValueObservingOptionNew context:nil];
     
     
+    self.imageViewConnecting = [[UIImageView alloc]init];
+    self.imageViewConnecting.backgroundColor = [UIColor blueColor];
+    [self.view addSubview:self.imageViewConnecting];
+    
+    self.labelConnecting = [[UILabel alloc] init];
+    self.labelConnecting.backgroundColor = [UIColor clearColor];
+    [self.imageViewConnecting addSubview:self.labelConnecting];
+    
+    self.imageViewConnecting.hidden = YES;
 }
 
 
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    self.navigationController.navigationBarHidden = YES;
+
     self.topLeftImage.alpha = 0.0f;
     self.topRightImage.alpha = 0.0f;
     self.bottomLeftImage.alpha = 0.0f;
@@ -52,6 +71,10 @@
                                           self.view.center.y + 100);
     self.loginButton.alpha = 0.0f;
     self.spinerView.alpha = 0.0f;
+    
+    self.imageViewConnecting.frame = CGRectMake(self.loginButton.frame.origin.x, self.loginButton.frame.origin.y - 150, self.headLabel.frame.size.width, self.headLabel.frame.size.height);
+    self.labelConnecting.frame = self.imageViewConnecting.bounds;
+    
 }
 
 - (void)viewDidLayoutSubviews
@@ -148,9 +171,28 @@
                      completion:nil];
     
 
-
+//    TransitionViewController *viewController = [[TransitionViewController alloc]init];
+//    [self.navigationController pushViewController:viewController animated:YES];
 
     [self.spinerView startAnimating];
+    [self showMessage:0];
+}
+
+- (void) showMessage:(int) index
+{
+    self.labelConnecting.text = MESSAGE[index];
+    [UIView transitionWithView:self.imageViewConnecting
+                      duration:1
+                       options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionTransitionFlipFromBottom
+                    animations:^{
+                        self.imageViewConnecting.hidden = NO;
+                        self.loginButton.bounds = CGRectMake(self.loginButton.bounds.origin.x,
+                                                             self.loginButton.bounds.origin.y,
+                                                             self.loginButton.bounds.size.width + 30 ,
+                                                             self.loginButton.bounds.size.height);
+                    } completion:^(BOOL finish){
+                        [self showMessage:1];
+                    }];
 }
 
 

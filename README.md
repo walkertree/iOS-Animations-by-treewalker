@@ -24,3 +24,14 @@
 usingSpringWithDamping ： 代表弹的强度，0.0 - 1.0，数值越小，表示弹的范围越大。
 
 initialSpringVelocity：表示动画的初始速度，数值越大，初始速度越大，初始速度大，也可以造成弹簧来回的速度显示。
+
+###Transution
+```
++ (void)transitionWithView:(UIView *)view 
+						duration:(NSTimeInterval)duration 
+						options:(UIViewAnimationOptions)options 
+					animations:(void (^ __nullable)(void))animations 
+					completion:(void (^ __nullable)(BOOL finished))completion NS_AVAILABLE_IOS(4_0);
+
+```
+视图添加的动画的过渡方法。
