@@ -71,3 +71,58 @@ CAEmitterLayer —— 粒子图层
 }
 ```
 例如上面的代码，是对一个动画进行上下翻转过渡的动画。auxLabel 用于中间过渡。结束后移除。
+
+###Keyframe Animations
+```
++ (void)animateKeyframesWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewKeyframeAnimationOptions)options animations:(void (^)(void))animations completion:(void (^ __nullable)(BOOL finished))completion 
+```
+
+在里面添加每一帧的动画
+
+```
++ (void)addKeyframeWithRelativeStartTime:(double)frameStartTime relativeDuration:(double)frameDuration animations:(void (^)(void))animations NS_AVAILABLE_IOS(7_0); 
+
+```
+程序会根据添加的帧动画，一步步执行添加的动画。
+
+如下实例：
+
+```
+- (void) planeDepart
+{
+    CGPoint originalCenter = self.imageViewPlane.center;
+    
+    [UIView animateKeyframesWithDuration:1.5
+                                   delay:0.0
+                                 options:UIViewKeyframeAnimationOptionCalculationModeLinear
+                              animations:^{
+                                  [UIView addKeyframeWithRelativeStartTime:0.0
+                                                          relativeDuration:0.25
+                                                                animations:^{
+                                                                    self.imageViewPlane.center = CGPointMake(originalCenter.x + 80, originalCenter.y -10);
+                                                                }];
+                                  [UIView addKeyframeWithRelativeStartTime:0.1 relativeDuration:0.4 animations:^{
+                                      self.imageViewPlane.transform = CGAffineTransformMakeRotation(-M_PI_4 / 2);
+                                  }];
+                                  
+                                  [UIView addKeyframeWithRelativeStartTime:0.25 relativeDuration:0.25 animations:^{
+                                      self.imageViewPlane.center = CGPointMake(self.imageViewPlane.center.x + 100, self.imageViewPlane.center.y - 50);
+                                      self.imageViewPlane.alpha = 0.0f;
+                                  }];
+                                  
+                                  [UIView addKeyframeWithRelativeStartTime:0.51 relativeDuration:0.01 animations:^{
+                                      self.imageViewPlane.transform = CGAffineTransformIdentity;
+                                      self.imageViewPlane.center = CGPointMake(0.0, originalCenter.y);
+                                  }];
+                                  
+                                  [UIView addKeyframeWithRelativeStartTime:0.55 relativeDuration:0.45 animations:^{
+                                      self.imageViewPlane.alpha = 1.0;
+                                      self.imageViewPlane.center = originalCenter;
+                                  }];
+                                  
+                              } completion:^(BOOL finished) {
+                                  
+                              }];
+}
+```
+其中StartTime 和  relativeDuration ：不是指实际上的时间，而是在这个动画的时间百分比。
