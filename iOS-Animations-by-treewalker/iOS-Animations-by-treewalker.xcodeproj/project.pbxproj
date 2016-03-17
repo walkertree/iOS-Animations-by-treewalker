@@ -15,6 +15,7 @@
 		44A2DBBA1C9691030086D778 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44A2DBB81C9691030086D778 /* LaunchScreen.storyboard */; };
 		44A2DBC51C9691040086D778 /* iOS_Animations_by_treewalkerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A2DBC41C9691040086D778 /* iOS_Animations_by_treewalkerTests.m */; };
 		44A2DBD01C9691040086D778 /* iOS_Animations_by_treewalkerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A2DBCF1C9691040086D778 /* iOS_Animations_by_treewalkerUITests.m */; };
+		44D3D4051C9938540026EE98 /* SnowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D3D4041C9938540026EE98 /* SnowView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		44A2DBCB1C9691040086D778 /* iOS-Animations-by-treewalkerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-Animations-by-treewalkerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44A2DBCF1C9691040086D778 /* iOS_Animations_by_treewalkerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_Animations_by_treewalkerUITests.m; sourceTree = "<group>"; };
 		44A2DBD11C9691040086D778 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44D3D4031C9938540026EE98 /* SnowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnowView.h; sourceTree = "<group>"; };
+		44D3D4041C9938540026EE98 /* SnowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnowView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				44A2DBB81C9691030086D778 /* LaunchScreen.storyboard */,
 				44A2DBBB1C9691030086D778 /* Info.plist */,
 				44A2DBAA1C9691030086D778 /* Supporting Files */,
+				44D3D4031C9938540026EE98 /* SnowView.h */,
+				44D3D4041C9938540026EE98 /* SnowView.m */,
 			);
 			path = "iOS-Animations-by-treewalker";
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 				44A2DBB21C9691030086D778 /* ViewController.m in Sources */,
 				44A2DBAF1C9691030086D778 /* AppDelegate.m in Sources */,
 				44A2DBAC1C9691030086D778 /* main.m in Sources */,
+				44D3D4051C9938540026EE98 /* SnowView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +502,7 @@
 				44A2DBD61C9691040086D778 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		44A2DBD71C9691040086D778 /* Build configuration list for PBXNativeTarget "iOS-Animations-by-treewalkerTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +511,7 @@
 				44A2DBD91C9691040086D778 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		44A2DBDA1C9691040086D778 /* Build configuration list for PBXNativeTarget "iOS-Animations-by-treewalkerUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +520,7 @@
 				44A2DBDC1C9691040086D778 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
