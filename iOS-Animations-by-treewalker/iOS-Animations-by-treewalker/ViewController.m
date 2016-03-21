@@ -33,16 +33,19 @@
         flyRight.fromValue = [NSNumber numberWithFloat:0 / 2];
         flyRight.toValue = [NSNumber numberWithFloat:self.view.bounds.size.width / 2];
         flyRight.duration = 0.5;
-        [self.labelTitle.layer addAnimation:flyRight forKey:nil];
-        [self.labelUserName.layer addAnimation:flyRight forKey:nil];
+         flyRight.delegate = self;
+        [flyRight setValue:@"labelTitle" forKey:@"name"];
+        [self.labelTitle.layer addAnimation:flyRight forKey:@"labelTitle"];
+        [flyRight setValue:@"labelUserName" forKey:@"name"];
+        [self.labelUserName.layer addAnimation:flyRight forKey:@"labelUserName"];
         flyRight.fromValue = [NSNumber numberWithFloat:0 / 2];
         flyRight.beginTime = CACurrentMediaTime();
         flyRight.autoreverses = NO;
-        [self.labelPassword.layer addAnimation:flyRight forKey:nil];
-        
-        
-
+        [flyRight setValue:@"labelPassword" forKey:@"name"];
+        [self.labelPassword.layer addAnimation:flyRight forKey:@"labelPassword"];
+       
     });
+    
     
     CABasicAnimation *cloudA = [CABasicAnimation animationWithKeyPath:@"opacity"];
     cloudA.fromValue = [NSNumber numberWithFloat:0];;
@@ -50,6 +53,11 @@
     cloudA.duration = 2.0;
     [self.imageViewClod1.layer addAnimation:cloudA forKey:nil];
 }
+
+- (void) animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+    NSLog(@"%@",[anim valueForKey:@"name"]);
+}
+
 - (IBAction)loginInPress:(id)sender {
         CABasicAnimation *flyRight = [CABasicAnimation animationWithKeyPath:@"position.y"];
         flyRight.fromValue = [NSNumber numberWithFloat:0 / 2];

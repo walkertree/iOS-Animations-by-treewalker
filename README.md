@@ -212,7 +212,49 @@ CAEmitterLayer —— 粒子图层
    * 4、kCAMediaTimingFunctionEaseInEaseOut（渐进渐出）：动画缓慢的进入，中间加速，然后减速的到达目的地。这个是默认的动画行为。
 
 
+###Animation Keys and Delegates
 
+* delegate
 
+``` 
+ @interface NSObject (CAAnimationDelegate)
+
+/* Called when the animation begins its active duration. */
+
+- (void)animationDidStart:(CAAnimation *)anim;
+
+/* Called when the animation either completes its active duration or
+ * is removed from the object it is attached to (i.e. the layer). 'flag'
+ * is true if the animation reached the end of its active duration
+ * without being removed. */
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag;
+
+@end
+```
+layer 动画的委托回调，动画开始和结束的响应。
+
+可以根据    
+
+```     
+[flyRight setValue:@"labelTitle" forKey:@"name"];
+```
+
+设置动画的 key-value 值，然后，根据
+
+```
+[flyRight valueForKey:@"name"]
+
+```
+
+来识别是哪一个动画结束或者开始。
+
+根据 
+
+```
+info.layer.animationKeys())
+```
+
+获得动画的 keypath
 
 
