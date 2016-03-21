@@ -180,3 +180,39 @@ CAEmitterLayer —— 粒子图层
 ```
 
 设置完约束的条件之后，进行动画时，只需要在动画的 block 中，加上 [self.view layoutIfNeeded]; 才会有动画。剩下的动画设置和别的都一样。只是对 autolayout 需要继续学习。
+
+###Layer Animations
+
+* fillMode属性的设置：（动画是否在开始或者结束的时候，显示 layer 位置）
+
+   * 1、kCAFillModeRemoved 这个是默认值，也就是说当动画开始前和动画结束后，动画对layer都没有影响，动画结束后，layer会恢复到之前的状态
+
+   * 2、kCAFillModeForwards 当动画结束后，layer会一直保持着动画最后的状态
+
+
+   * 3、kCAFillModeBackwards 在动画开始前，只需要将动画加入了一个layer，layer便立即进入动画的初始状态并等待动画开始。
+
+
+   * 4、kCAFillModeBoth 这个其实就是上面两个的合成.动画加入后开始之前，layer便处于动画初始状态，动画结束后layer保持动画最后的状态
+
+**removedOnCompletion** 是否移除动画,返回到初始的位置，和 **fillMode** 配合使用。默认为 YES,即回到初始状态。
+
+* 速度控制函数(CAMediaTimingFunction)：
+
+
+   * 1、kCAMediaTimingFunctionLinear（线性）：匀速，给你一个相对静态的感觉
+
+
+   * 2、kCAMediaTimingFunctionEaseIn（渐进）：动画缓慢进入，然后加速离开
+
+
+   * 3、kCAMediaTimingFunctionEaseOut（渐出）：动画全速进入，然后减速的到达目的地
+
+
+   * 4、kCAMediaTimingFunctionEaseInEaseOut（渐进渐出）：动画缓慢的进入，中间加速，然后减速的到达目的地。这个是默认的动画行为。
+
+
+
+
+
+
