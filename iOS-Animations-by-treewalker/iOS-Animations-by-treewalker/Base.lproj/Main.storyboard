@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -64,6 +64,7 @@
                     </view>
                     <connections>
                         <outlet property="bgView" destination="UR6-bE-Mth" id="Myi-E8-7QS"/>
+                        <outlet property="buttonLogin" destination="HTH-92-pSB" id="9yn-Pc-1d7"/>
                         <outlet property="imageViewClod1" destination="Cys-Q8-CjT" id="ZBb-rO-rFk"/>
                         <outlet property="imageViewClod2" destination="mYy-Pm-cir" id="49B-aA-upd"/>
                         <outlet property="imageViewClod3" destination="81t-NR-3sr" id="vXf-cO-bQ3"/>

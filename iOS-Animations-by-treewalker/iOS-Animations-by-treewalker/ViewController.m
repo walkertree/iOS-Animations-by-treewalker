@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle;
 @property (weak, nonatomic) IBOutlet UITextField *labelUserName;
 @property (weak, nonatomic) IBOutlet UITextField *labelPassword;
+@property (weak, nonatomic) IBOutlet UIButton *buttonLogin;
 
 @end
 
@@ -28,30 +29,31 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        CABasicAnimation *flyRight = [CABasicAnimation animationWithKeyPath:@"position.x"];
-        flyRight.fromValue = [NSNumber numberWithFloat:0 / 2];
-        flyRight.toValue = [NSNumber numberWithFloat:self.view.bounds.size.width / 2];
-        flyRight.duration = 0.5;
-         flyRight.delegate = self;
-        [flyRight setValue:@"labelTitle" forKey:@"name"];
-        [self.labelTitle.layer addAnimation:flyRight forKey:@"labelTitle"];
-        [flyRight setValue:@"labelUserName" forKey:@"name"];
-        [self.labelUserName.layer addAnimation:flyRight forKey:@"labelUserName"];
-        flyRight.fromValue = [NSNumber numberWithFloat:0 / 2];
-        flyRight.beginTime = CACurrentMediaTime();
-        flyRight.autoreverses = NO;
-        [flyRight setValue:@"labelPassword" forKey:@"name"];
-        [self.labelPassword.layer addAnimation:flyRight forKey:@"labelPassword"];
-       
-    });
+
+    CAAnimationGroup *groundAnimation = [CAAnimationGroup animation];
+    groundAnimation.beginTime = CACurrentMediaTime() + 0.5;
+    groundAnimation.duration = 1;
+    groundAnimation.fillMode = kCAFillModeBackwards;
+    groundAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    groundAnimation.repeatCount = 3;
+//    groundAnimation.repeatDuration = 3;
+//    groundAnimation.speed = 2.0f;
+//    groundAnimation.autoreverses = YES;
     
+    CABasicAnimation *scalDown = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scalDown.fromValue = [NSNumber numberWithFloat:3.5];
+    scalDown.toValue = [NSNumber numberWithFloat:1.0];
     
-    CABasicAnimation *cloudA = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    cloudA.fromValue = [NSNumber numberWithFloat:0];;
-    cloudA.toValue = [NSNumber numberWithFloat:1];;
-    cloudA.duration = 2.0;
-    [self.imageViewClod1.layer addAnimation:cloudA forKey:nil];
+    CABasicAnimation *rotate =  [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotate.fromValue = [NSNumber numberWithFloat:M_PI_4];
+    rotate.toValue = [NSNumber numberWithFloat:0];
+    
+    CABasicAnimation *fade = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    fade.fromValue = [NSNumber numberWithFloat:0];;
+    fade.toValue = [NSNumber numberWithFloat:1];
+    
+    groundAnimation.animations = @[scalDown,rotate,fade];
+    [self.buttonLogin.layer addAnimation:groundAnimation forKey:nil];
 }
 
 - (void) animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{

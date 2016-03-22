@@ -258,3 +258,38 @@ info.layer.animationKeys())
 获得动画的 keypath
 
 
+###Groups and Advanced Timing
+
+* Groups
+
+```
+	CAAnimationGroup *groundAnimation = [CAAnimationGroup animation];
+    groundAnimation.beginTime = CACurrentMediaTime() + 0.5;
+    groundAnimation.duration = 0.5;
+    groundAnimation.fillMode = kCAFillModeBackwards;
+    
+    CABasicAnimation *scalDown = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scalDown.fromValue = [NSNumber numberWithFloat:3.5];
+    scalDown.toValue = [NSNumber numberWithFloat:1.0];
+    
+    CABasicAnimation *rotate =  [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotate.fromValue = [NSNumber numberWithFloat:M_PI_4];
+    rotate.toValue = [NSNumber numberWithFloat:0];
+    
+    CABasicAnimation *fade = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    fade.fromValue = [NSNumber numberWithFloat:0];;
+    fade.toValue = [NSNumber numberWithFloat:1];
+    
+    groundAnimation.animations = @[scalDown,rotate,fade];
+    [self.buttonLogin.layer addAnimation:groundAnimation forKey:nil];
+```
+EaseIn & EaseOut
+
+   * Ease:是缓慢的，即 In —— 进入时缓慢，动画开始慢慢加速； 
+   * Out —— 进入时最快，动画慢慢减速。
+   * EaseInEaseOut —— 进入和退出都是缓慢的，中间是快速的状态
+   
+autoreverses：反向恢复动画 和 repeatCount（次数）、 repeatDuration（重复时间） 配合使用。效果更佳
+
+layer.speed： CAAnimationGroup 没有作用。
+
