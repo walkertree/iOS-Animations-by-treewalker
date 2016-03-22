@@ -30,30 +30,25 @@
 {
     [super viewDidAppear:animated];
 
-    CAAnimationGroup *groundAnimation = [CAAnimationGroup animation];
-    groundAnimation.beginTime = CACurrentMediaTime() + 0.5;
-    groundAnimation.duration = 1;
-    groundAnimation.fillMode = kCAFillModeBackwards;
-    groundAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    groundAnimation.repeatCount = 3;
-//    groundAnimation.repeatDuration = 3;
-//    groundAnimation.speed = 2.0f;
-//    groundAnimation.autoreverses = YES;
+    CAKeyframeAnimation *keyFrameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation"];
+    keyFrameAnimation.duration = 1;
+    keyFrameAnimation.repeatCount = 3;
+    keyFrameAnimation.values = @[[NSNumber numberWithFloat:0],
+                                 [NSNumber numberWithFloat:-M_PI_4 / 4],
+                                 [NSNumber numberWithFloat:0.0],
+                                 [NSNumber numberWithFloat:M_PI_4 / 4],
+                                 [NSNumber numberWithFloat:0.0]];
+    keyFrameAnimation.keyTimes = @[[NSNumber numberWithFloat:0],
+                                   [NSNumber numberWithFloat:0.25],
+                                   [NSNumber numberWithFloat:0.5],
+                                   [NSNumber numberWithFloat:0.75],
+                                   [NSNumber numberWithFloat:1]];
     
-    CABasicAnimation *scalDown = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    scalDown.fromValue = [NSNumber numberWithFloat:3.5];
-    scalDown.toValue = [NSNumber numberWithFloat:1.0];
+    [self.labelTitle.layer addAnimation:keyFrameAnimation forKey:nil];
     
-    CABasicAnimation *rotate =  [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
-    rotate.fromValue = [NSNumber numberWithFloat:M_PI_4];
-    rotate.toValue = [NSNumber numberWithFloat:0];
     
-    CABasicAnimation *fade = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    fade.fromValue = [NSNumber numberWithFloat:0];;
-    fade.toValue = [NSNumber numberWithFloat:1];
     
-    groundAnimation.animations = @[scalDown,rotate,fade];
-    [self.buttonLogin.layer addAnimation:groundAnimation forKey:nil];
+
 }
 
 - (void) animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
@@ -73,6 +68,32 @@
         flyRight.fillMode = kCAFillModeForwards;
         flyRight.removedOnCompletion = NO;
         [self.labelPassword.layer addAnimation:flyRight forKey:nil];
+    
+    
+    CAAnimationGroup *groundAnimation = [CAAnimationGroup animation];
+    groundAnimation.beginTime = CACurrentMediaTime() + 0.5;
+    groundAnimation.duration = 1;
+    groundAnimation.fillMode = kCAFillModeBackwards;
+    groundAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    groundAnimation.repeatCount = 3;
+    //    groundAnimation.repeatDuration = 3;
+    //    groundAnimation.speed = 2.0f;
+    //    groundAnimation.autoreverses = YES;
+    
+    CABasicAnimation *scalDown = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scalDown.fromValue = [NSNumber numberWithFloat:3.5];
+    scalDown.toValue = [NSNumber numberWithFloat:1.0];
+    
+    CABasicAnimation *rotate =  [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotate.fromValue = [NSNumber numberWithFloat:M_PI_4];
+    rotate.toValue = [NSNumber numberWithFloat:0];
+    
+    CABasicAnimation *fade = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    fade.fromValue = [NSNumber numberWithFloat:0];;
+    fade.toValue = [NSNumber numberWithFloat:1];
+    
+    groundAnimation.animations = @[scalDown,rotate,fade];
+    [self.buttonLogin.layer addAnimation:groundAnimation forKey:nil];
 }
 
 @end

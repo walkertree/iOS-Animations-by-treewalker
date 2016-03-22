@@ -8,7 +8,7 @@
 ```
 改方法可以使用的 UIView 的属性 ：bounds、frame、center、backgroundColor、alpha、transform
 
-###springs
+##springs
 ```
 + (void)animateWithDuration:(NSTimeInterval)duration 
 							delay:(NSTimeInterval)delay 
@@ -25,7 +25,7 @@ usingSpringWithDamping ： 代表弹的强度，0.0 - 1.0，数值越小，表�
 
 initialSpringVelocity：表示动画的初始速度，数值越大，初始速度越大，初始速度大，也可以造成弹簧来回的速度显示。
 
-###Transution
+##Transution
 ```
 + (void)transitionWithView:(UIView *)view 
 						duration:(NSTimeInterval)duration 
@@ -36,7 +36,7 @@ initialSpringVelocity：表示动画的初始速度，数值越大，初始速�
 ```
 视图添加的动画的过渡方法。
 
-###View Animations in Practice
+##View Animations in Practice
 
 CAEmitterLayer —— 粒子图层
 
@@ -72,7 +72,7 @@ CAEmitterLayer —— 粒子图层
 ```
 例如上面的代码，是对一个动画进行上下翻转过渡的动画。auxLabel 用于中间过渡。结束后移除。
 
-###Keyframe Animations
+##Keyframe Animations
 ```
 + (void)animateKeyframesWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewKeyframeAnimationOptions)options animations:(void (^)(void))animations completion:(void (^ __nullable)(BOOL finished))completion 
 ```
@@ -127,7 +127,7 @@ CAEmitterLayer —— 粒子图层
 ```
 其中StartTime 和  relativeDuration ：不是指实际上的时间，而是在这个动画的时间百分比。
 
-###Auto Layout
+##Auto Layout
 ```
 - (IBAction)menuButtonPress:(id)sender {
     
@@ -181,7 +181,7 @@ CAEmitterLayer —— 粒子图层
 
 设置完约束的条件之后，进行动画时，只需要在动画的 block 中，加上 [self.view layoutIfNeeded]; 才会有动画。剩下的动画设置和别的都一样。只是对 autolayout 需要继续学习。
 
-###Layer Animations
+##Layer Animations
 
 * fillMode属性的设置：（动画是否在开始或者结束的时候，显示 layer 位置）
 
@@ -212,7 +212,7 @@ CAEmitterLayer —— 粒子图层
    * 4、kCAMediaTimingFunctionEaseInEaseOut（渐进渐出）：动画缓慢的进入，中间加速，然后减速的到达目的地。这个是默认的动画行为。
 
 
-###Animation Keys and Delegates
+##Animation Keys and Delegates
 
 * delegate
 
@@ -258,7 +258,7 @@ info.layer.animationKeys())
 获得动画的 keypath
 
 
-###Groups and Advanced Timing
+##Groups and Advanced Timing
 
 * Groups
 
@@ -293,3 +293,41 @@ autoreverses：反向恢复动画 和 repeatCount（次数）、 repeatDuration�
 
 layer.speed： CAAnimationGroup 没有作用。
 
+
+##Keyframe Animations & Struct Properties
+
+```
+    CAKeyframeAnimation *keyFrameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation"];
+    keyFrameAnimation.duration = 1;
+    keyFrameAnimation.repeatCount = 3;
+    keyFrameAnimation.values = @[[NSNumber numberWithFloat:0],
+                                 [NSNumber numberWithFloat:-M_PI_4 / 4],
+                                 [NSNumber numberWithFloat:0.0],
+                                 [NSNumber numberWithFloat:M_PI_4 / 4],
+                                 [NSNumber numberWithFloat:0.0]];
+    keyFrameAnimation.keyTimes = @[[NSNumber numberWithFloat:0],
+                                   [NSNumber numberWithFloat:0.25],
+                                   [NSNumber numberWithFloat:0.5],
+                                   [NSNumber numberWithFloat:0.75],
+                                   [NSNumber numberWithFloat:1]];
+    
+    [self.labelTitle.layer addAnimation:keyFrameAnimation forKey:nil];
+
+```
+这是一个晃动的代码。
+
+###Animating struct values
+
+bounds、position、transform、opacity...等等
+
+* 初始化方式
+   * [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation"]
+
+使用方式：
+
+```
+ 	CABasicAnimation * baseAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
+    baseAnimation.duration = 1.0;
+    baseAnimation.fromValue = [NSValue valueWithCGPoint:CGPointMake(0, 0)];
+    baseAnimation.fromValue = [NSValue valueWithCGPoint:CGPointMake(100, 100)];    
+```
