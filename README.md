@@ -293,3 +293,16 @@ autoreverses：反向恢复动画 和 repeatCount（次数）、 repeatDuration�
 
 layer.speed： CAAnimationGroup 没有作用。
 
+##Shapes and Masks
+ * UIBezierPath
+    * 用来绘制 Shapes 形状
+
+```
+self.circleLayer.path = [UIBezierPath bezierPathWithOvalInRect:self.bounds].CGPath;     // 方形的内接圆    
+self.circleLayer.strokeColor = [UIColor whiteColor].CGColor;                            // 画笔颜色 
+self.circleLayer.lineWidth = self.lineWidth;                                            // 线条的宽度
+self.circleLayer.fillColor = [UIColor clearColor].CGColor;                              // 形状内的填充颜色
+```
+
+* Masks
+   * CALayer 中 mask 用来添加该图层的遮盖物图层

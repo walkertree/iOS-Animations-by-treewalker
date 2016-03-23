@@ -7,17 +7,15 @@
 //
 
 #import "ViewController.h"
+#import "AvatarView.h"
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *bgView;
-@property (weak, nonatomic) IBOutlet UIImageView *imageViewClod1;
-@property (weak, nonatomic) IBOutlet UIImageView *imageViewClod2;
-@property (weak, nonatomic) IBOutlet UIImageView *imageViewClod3;
-@property (weak, nonatomic) IBOutlet UIImageView *imageViewClod4;
 @property (weak, nonatomic) IBOutlet UILabel *labelTitle;
-@property (weak, nonatomic) IBOutlet UITextField *labelUserName;
-@property (weak, nonatomic) IBOutlet UITextField *labelPassword;
-@property (weak, nonatomic) IBOutlet UIButton *buttonLogin;
+@property (weak, nonatomic) IBOutlet UILabel *labelVs;
+@property (weak, nonatomic) IBOutlet AvatarView *viewBeats;
+@property (weak, nonatomic) IBOutlet AvatarView *viewMe;
+@property (weak, nonatomic) IBOutlet UIButton *buttonSearch;
+
 
 @end
 
@@ -25,54 +23,46 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.viewBeats setImage:[UIImage imageNamed:@"avatar-2.png"]];
+    [self.viewMe setImage:[UIImage imageNamed:@"avatar-1.png"]];
+    [self.viewBeats setText:@"Beats"];
+    [self.viewMe setText:@"ME"];
+    
+    [self.viewBeats setNeedsLayout];
+    [self.viewMe setNeedsLayout];
 }
+
+- (IBAction)searchPress:(id)sender {
+    self.viewMe.translatesAutoresizingMaskIntoConstraints = YES;
+//    opponentAvatar.shouldTransitionToFinishedState = true
+
+}
+
 - (void) viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
-
-    CAAnimationGroup *groundAnimation = [CAAnimationGroup animation];
-    groundAnimation.beginTime = CACurrentMediaTime() + 0.5;
-    groundAnimation.duration = 1;
-    groundAnimation.fillMode = kCAFillModeBackwards;
-    groundAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    groundAnimation.repeatCount = 3;
-//    groundAnimation.repeatDuration = 3;
-//    groundAnimation.speed = 2.0f;
-//    groundAnimation.autoreverses = YES;
-    
-    CABasicAnimation *scalDown = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    scalDown.fromValue = [NSNumber numberWithFloat:3.5];
-    scalDown.toValue = [NSNumber numberWithFloat:1.0];
-    
-    CABasicAnimation *rotate =  [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
-    rotate.fromValue = [NSNumber numberWithFloat:M_PI_4];
-    rotate.toValue = [NSNumber numberWithFloat:0];
-    
-    CABasicAnimation *fade = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    fade.fromValue = [NSNumber numberWithFloat:0];;
-    fade.toValue = [NSNumber numberWithFloat:1];
-    
-    groundAnimation.animations = @[scalDown,rotate,fade];
-    [self.buttonLogin.layer addAnimation:groundAnimation forKey:nil];
+    [self searchForOpponent];
 }
 
-- (void) animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
-    NSLog(@"%@",[anim valueForKey:@"name"]);
+
+- (void) searchForOpponent
+{
+    CGSize avatarSize = self.viewMe.frame.size;
+    CGFloat bounceXOffset = self.viewMe.frame.size.width / 1.9;
+    CGSize morphSize = CGSizeMake(avatarSize.width * 0.85, avatarSize.height * 1.1);
+    
+    CGPoint rightBouncePoint = CGPointMake(self.view.frame.size.width / 2 + bounceXOffset,
+                                           self.viewMe.center.y);
+    CGPoint leftBouncePoint = CGPointMake(self.view.frame.size.width / 2 - bounceXOffset,
+                                          self.viewMe.center.y);
+    
+    
+    [self.viewMe bounceOffPoint:rightBouncePoint morphSize:morphSize];
+    [self.viewBeats bounceOffPoint:leftBouncePoint morphSize:morphSize];
 }
 
-- (IBAction)loginInPress:(id)sender {
-        CABasicAnimation *flyRight = [CABasicAnimation animationWithKeyPath:@"position.y"];
-        flyRight.fromValue = [NSNumber numberWithFloat:0 / 2];
-        flyRight.toValue = [NSNumber numberWithFloat:self.view.bounds.size.width / 2 + 20];
-        flyRight.duration = 0.5;
-        [self.labelTitle.layer addAnimation:flyRight forKey:nil];
-        [self.labelUserName.layer addAnimation:flyRight forKey:nil];
-        flyRight.fromValue = [NSNumber numberWithFloat:0 / 2];
-        flyRight.toValue = [NSNumber numberWithFloat:self.view.bounds.size.width / 2 + 200];
-        flyRight.beginTime = CACurrentMediaTime();
-        flyRight.fillMode = kCAFillModeForwards;
-        flyRight.removedOnCompletion = NO;
-        [self.labelPassword.layer addAnimation:flyRight forKey:nil];
-}
+
+
+
 
 @end

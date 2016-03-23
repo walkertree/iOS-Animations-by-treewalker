@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		448FE5DB1CA13C160033191B /* AvatarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 448FE5DA1CA13C160033191B /* AvatarView.m */; };
+		448FE5DD1CA13D1C0033191B /* Arial Rounded Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 448FE5DC1CA13D1C0033191B /* Arial Rounded Bold.ttf */; };
 		44A2DBAC1C9691030086D778 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A2DBAB1C9691030086D778 /* main.m */; };
 		44A2DBAF1C9691030086D778 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A2DBAE1C9691030086D778 /* AppDelegate.m */; };
 		44A2DBB21C9691030086D778 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A2DBB11C9691030086D778 /* ViewController.m */; };
@@ -35,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		448FE5D91CA13C160033191B /* AvatarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvatarView.h; sourceTree = "<group>"; };
+		448FE5DA1CA13C160033191B /* AvatarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvatarView.m; sourceTree = "<group>"; };
+		448FE5DC1CA13D1C0033191B /* Arial Rounded Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arial Rounded Bold.ttf"; sourceTree = "<group>"; };
 		44A2DBA71C9691030086D778 /* iOS-Animations-by-treewalker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Animations-by-treewalker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44A2DBAB1C9691030086D778 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		44A2DBAD1C9691030086D778 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,6 +106,7 @@
 		44A2DBA91C9691030086D778 /* iOS-Animations-by-treewalker */ = {
 			isa = PBXGroup;
 			children = (
+				448FE5DC1CA13D1C0033191B /* Arial Rounded Bold.ttf */,
 				44A2DBAD1C9691030086D778 /* AppDelegate.h */,
 				44A2DBAE1C9691030086D778 /* AppDelegate.m */,
 				44A2DBB01C9691030086D778 /* ViewController.h */,
@@ -110,6 +116,8 @@
 				44A2DBB81C9691030086D778 /* LaunchScreen.storyboard */,
 				44A2DBBB1C9691030086D778 /* Info.plist */,
 				44A2DBAA1C9691030086D778 /* Supporting Files */,
+				448FE5D91CA13C160033191B /* AvatarView.h */,
+				448FE5DA1CA13C160033191B /* AvatarView.m */,
 			);
 			path = "iOS-Animations-by-treewalker";
 			sourceTree = "<group>";
@@ -244,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44A2DBBA1C9691030086D778 /* LaunchScreen.storyboard in Resources */,
+				448FE5DD1CA13D1C0033191B /* Arial Rounded Bold.ttf in Resources */,
 				44A2DBB71C9691030086D778 /* Assets.xcassets in Resources */,
 				44A2DBB51C9691030086D778 /* Main.storyboard in Resources */,
 			);
@@ -271,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44A2DBB21C9691030086D778 /* ViewController.m in Sources */,
+				448FE5DB1CA13C160033191B /* AvatarView.m in Sources */,
 				44A2DBAF1C9691030086D778 /* AppDelegate.m in Sources */,
 				44A2DBAC1C9691030086D778 /* main.m in Sources */,
 			);
@@ -496,6 +506,7 @@
 				44A2DBD61C9691040086D778 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		44A2DBD71C9691040086D778 /* Build configuration list for PBXNativeTarget "iOS-Animations-by-treewalkerTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +515,7 @@
 				44A2DBD91C9691040086D778 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		44A2DBDA1C9691040086D778 /* Build configuration list for PBXNativeTarget "iOS-Animations-by-treewalkerUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +524,7 @@
 				44A2DBDC1C9691040086D778 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

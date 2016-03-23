@@ -17,61 +17,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg-sunny" translatesAutoresizingMaskIntoConstraints="NO" id="UR6-bE-Mth">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg-boxingring" translatesAutoresizingMaskIntoConstraints="NO" id="CUY-Uk-Ua4">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg-sunny-cloud-1" translatesAutoresizingMaskIntoConstraints="NO" id="Cys-Q8-CjT">
-                                <rect key="frame" x="-11" y="122" width="169" height="50"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg-sunny-cloud-2" translatesAutoresizingMaskIntoConstraints="NO" id="mYy-Pm-cir">
-                                <rect key="frame" x="159" y="151" width="148" height="49"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg-sunny-cloud-3" translatesAutoresizingMaskIntoConstraints="NO" id="81t-NR-3sr">
-                                <rect key="frame" x="25" y="376" width="74" height="35"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg-sunny-cloud-4" translatesAutoresizingMaskIntoConstraints="NO" id="wHw-Ny-Lz1">
-                                <rect key="frame" x="176" y="328" width="115" height="50"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bahama Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfZ-Gj-0Bj">
-                                <rect key="frame" x="90" y="70" width="140" height="44"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OgN-Yc-rSN">
-                                <rect key="frame" x="55" y="151" width="211" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JDP-yX-uwm">
-                                <rect key="frame" x="55" y="189" width="211" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTH-92-pSB">
-                                <rect key="frame" x="90" y="227" width="140" height="40"/>
-                                <color key="backgroundColor" red="0.56862745098039214" green="0.83137254901960789" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <state key="normal" title="Login in">
-                                    <color key="titleColor" red="0.047058823529411764" green="0.36078431372549019" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phJ-Xv-f39">
+                                <rect key="frame" x="0.0" y="485" width="320" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="Search Again">
+                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginInPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7cr-NX-MSu"/>
+                                    <action selector="searchPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iof-Yw-Mzm"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Searching for opponents..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J73-qh-2Kn">
+                                <rect key="frame" x="59" y="51" width="203" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hmh-W4-S1G" customClass="AvatarView">
+                                <rect key="frame" x="20" y="138" width="90" height="90"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Gi-ye-ys9" customClass="AvatarView">
+                                <rect key="frame" x="210" y="138" width="90" height="90"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VS." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GsX-iI-SML">
+                                <rect key="frame" x="137" y="163" width="46" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="bgView" destination="UR6-bE-Mth" id="Myi-E8-7QS"/>
-                        <outlet property="buttonLogin" destination="HTH-92-pSB" id="9yn-Pc-1d7"/>
-                        <outlet property="imageViewClod1" destination="Cys-Q8-CjT" id="ZBb-rO-rFk"/>
-                        <outlet property="imageViewClod2" destination="mYy-Pm-cir" id="49B-aA-upd"/>
-                        <outlet property="imageViewClod3" destination="81t-NR-3sr" id="vXf-cO-bQ3"/>
-                        <outlet property="imageViewClod4" destination="wHw-Ny-Lz1" id="N3e-e5-UcJ"/>
-                        <outlet property="labelPassword" destination="JDP-yX-uwm" id="VV7-z2-NQ9"/>
-                        <outlet property="labelTitle" destination="rfZ-Gj-0Bj" id="syf-nI-ado"/>
-                        <outlet property="labelUserName" destination="OgN-Yc-rSN" id="mRJ-e0-atu"/>
+                        <outlet property="buttonSearch" destination="phJ-Xv-f39" id="nUX-xL-pUV"/>
+                        <outlet property="labelTitle" destination="J73-qh-2Kn" id="YKn-m1-K2E"/>
+                        <outlet property="labelVs" destination="GsX-iI-SML" id="c3c-Ri-wRq"/>
+                        <outlet property="viewBeats" destination="Hmh-W4-S1G" id="Fts-TN-sYu"/>
+                        <outlet property="viewMe" destination="3Gi-ye-ys9" id="JpT-7a-kih"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -80,10 +67,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bg-sunny" width="320" height="568"/>
-        <image name="bg-sunny-cloud-1" width="159" height="50"/>
-        <image name="bg-sunny-cloud-2" width="138" height="49"/>
-        <image name="bg-sunny-cloud-3" width="74" height="35"/>
-        <image name="bg-sunny-cloud-4" width="115" height="50"/>
+        <image name="bg-boxingring" width="320" height="568"/>
     </resources>
 </document>
