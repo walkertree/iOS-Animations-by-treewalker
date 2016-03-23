@@ -311,6 +311,9 @@ self.circleLayer.fillColor = [UIColor clearColor].CGColor;                      
    
    
 ##Gradient Animations
+
+![Gradient Example](https://raw.githubusercontent.com/walkertree/iOS-Animations-by-treewalker/Gradient_Animations/Example.png)
+
    渐变色的动画：
    
    ```
