@@ -306,3 +306,47 @@ self.circleLayer.fillColor = [UIColor clearColor].CGColor;                      
 
 * Masks
    * CALayer 中 mask 用来添加该图层的遮盖物图层
+
+   
+   
+   
+##Gradient Animations
+   渐变色的动画：
+   
+   ```
+    self.gradientLayer = [CAGradientLayer layer];
+    // 0.5 、1 都是按照比例来划分的。
+    self.gradientLayer.startPoint = CGPointMake(0, 0.5);
+    self.gradientLayer.endPoint = CGPointMake(1.0, 0.5);
+    
+    self.gradientLayer.colors = @[ (id)[[UIColor redColor] CGColor],
+                                    (id)[[UIColor blueColor] CGColor],
+                                   (id)[[UIColor greenColor] CGColor]];
+    self.gradientLayer.locations = @[[NSNumber numberWithFloat:0.25],[NSNumber numberWithFloat:0.5],[NSNumber numberWithFloat:0.75]];
+    self.gradientLayer.frame = CGRectMake( -self.buttonSearch.bounds.size.width,
+                                          self.buttonSearch.bounds.origin.y,
+                                          3*self.buttonSearch.bounds.size.width,
+                                          self.buttonSearch.bounds.size.height);
+    [self.buttonSearch.layer addSublayer:self.gradientLayer];
+    
+    CABasicAnimation *gradientAnimation = [CABasicAnimation animationWithKeyPath:@"locations"];
+    gradientAnimation.fromValue = @[[NSNumber numberWithFloat:0],
+                                    [NSNumber numberWithFloat:0],
+                                    [NSNumber numberWithFloat:0.25]];
+    gradientAnimation.toValue = @[[NSNumber numberWithFloat:0.5],
+                                  [NSNumber numberWithFloat:1.0],
+                                  [NSNumber numberWithFloat:1.0]];
+    gradientAnimation.duration = 3.0;
+    gradientAnimation.repeatCount = INFINITY;
+    
+    [self.gradientLayer addAnimation:gradientAnimation forKey:nil];
+    
+   ```
+    
+
+* CAGradientLayer： 渐变色的图层。根据设置动画的 location 属性，设置颜色的位置。 位置都一以比例来设置的。
+    
+* 如果要在文字上做渐变色。可以使用文字进行绘图（NSString drawInRect）。获取文字的图层信息图层，在文字图层上设置渐变色图层，则，文字上就会有渐变色。
+
+##Stroke and Path Animations
+
