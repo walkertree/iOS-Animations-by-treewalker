@@ -63,6 +63,67 @@
     
     [self.gradientLayer addAnimation:gradientAnimation forKey:nil];
     
+    
+    
+    CAShapeLayer *ovalShapeLayer = [CAShapeLayer layer];
+    ovalShapeLayer.strokeColor = [UIColor whiteColor].CGColor;
+    ovalShapeLayer.fillColor = [UIColor clearColor].CGColor;
+    ovalShapeLayer.lineWidth = 4.0;
+    ovalShapeLayer.lineDashPattern = @[[NSNumber numberWithInt:2],
+                                       [NSNumber numberWithInt:3]];
+
+    
+    CGFloat refreshRadius = self.view.frame.size.width / 3;
+    ovalShapeLayer.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(self.view.frame.size.width / 3,
+                                                                            self.view.frame.size.height / 2,
+                                                                            refreshRadius,
+                                                                            refreshRadius)].CGPath;
+    [self.view.layer addSublayer:ovalShapeLayer];
+    
+    
+    UIImage *imageMe = [UIImage imageNamed:@"avatar-1.png"];
+    CALayer *imageLayer = [CALayer layer];
+    imageLayer.contents = (__bridge id _Nullable)(imageMe.CGImage);
+    imageLayer.bounds = CGRectMake(0, 0, imageMe.size.width / 2, imageMe.size.height / 2);
+    imageLayer.position = CGPointMake( self.view.center.x + refreshRadius / 2,
+                                      self.view.center.y + refreshRadius / 2);
+    [self.view.layer addSublayer:imageLayer];
+    
+    imageLayer.opacity = 1.0;
+    
+    
+    
+    CABasicAnimation *startAnimation = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
+    startAnimation.fromValue = [NSNumber numberWithFloat:-0.5];
+    startAnimation.toValue = [NSNumber numberWithFloat:1.0];
+    
+    
+    CABasicAnimation *endAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    endAnimation.fromValue = [NSNumber numberWithFloat:0];
+    endAnimation.toValue = [NSNumber numberWithFloat:1.0];
+    
+    CAAnimationGroup * storkeAnimationGroup = [CAAnimationGroup animation];
+    storkeAnimationGroup.duration = 1.5;
+    storkeAnimationGroup.repeatCount = 5;
+    storkeAnimationGroup.animations = @[startAnimation,endAnimation];
+    [ovalShapeLayer addAnimation:storkeAnimationGroup forKey:nil];
+    
+    
+    CAKeyframeAnimation *keyAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    keyAnimation.path = ovalShapeLayer.path;
+    keyAnimation.calculationMode = kCAAnimationPaced;
+    
+    CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotationAnimation.fromValue = [NSNumber numberWithFloat:0];
+    rotationAnimation.toValue = [NSNumber numberWithFloat:2 * M_PI];
+    
+    CAAnimationGroup * flyAnimationGroup = [CAAnimationGroup animation];
+    flyAnimationGroup.duration = 1.5;
+    flyAnimationGroup.repeatCount = 5;
+    flyAnimationGroup.animations = @[keyAnimation,rotationAnimation];
+    [imageLayer addAnimation:flyAnimationGroup forKey:nil];
+    
+    
 }
 
 - (IBAction)searchPress:(id)sender {

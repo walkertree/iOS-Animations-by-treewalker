@@ -8,7 +8,7 @@
 ```
 改方法可以使用的 UIView 的属性 ：bounds、frame、center、backgroundColor、alpha、transform
 
-###springs
+##springs
 ```
 + (void)animateWithDuration:(NSTimeInterval)duration 
 							delay:(NSTimeInterval)delay 
@@ -25,7 +25,7 @@ usingSpringWithDamping ： 代表弹的强度，0.0 - 1.0，数值越小，表�
 
 initialSpringVelocity：表示动画的初始速度，数值越大，初始速度越大，初始速度大，也可以造成弹簧来回的速度显示。
 
-###Transution
+##Transution
 ```
 + (void)transitionWithView:(UIView *)view 
 						duration:(NSTimeInterval)duration 
@@ -36,7 +36,7 @@ initialSpringVelocity：表示动画的初始速度，数值越大，初始速�
 ```
 视图添加的动画的过渡方法。
 
-###View Animations in Practice
+##View Animations in Practice
 
 CAEmitterLayer —— 粒子图层
 
@@ -72,7 +72,7 @@ CAEmitterLayer —— 粒子图层
 ```
 例如上面的代码，是对一个动画进行上下翻转过渡的动画。auxLabel 用于中间过渡。结束后移除。
 
-###Keyframe Animations
+##Keyframe Animations
 ```
 + (void)animateKeyframesWithDuration:(NSTimeInterval)duration delay:(NSTimeInterval)delay options:(UIViewKeyframeAnimationOptions)options animations:(void (^)(void))animations completion:(void (^ __nullable)(BOOL finished))completion 
 ```
@@ -127,7 +127,7 @@ CAEmitterLayer —— 粒子图层
 ```
 其中StartTime 和  relativeDuration ：不是指实际上的时间，而是在这个动画的时间百分比。
 
-###Auto Layout
+##Auto Layout
 ```
 - (IBAction)menuButtonPress:(id)sender {
     
@@ -181,7 +181,7 @@ CAEmitterLayer —— 粒子图层
 
 设置完约束的条件之后，进行动画时，只需要在动画的 block 中，加上 [self.view layoutIfNeeded]; 才会有动画。剩下的动画设置和别的都一样。只是对 autolayout 需要继续学习。
 
-###Layer Animations
+##Layer Animations
 
 * fillMode属性的设置：（动画是否在开始或者结束的时候，显示 layer 位置）
 
@@ -212,7 +212,7 @@ CAEmitterLayer —— 粒子图层
    * 4、kCAMediaTimingFunctionEaseInEaseOut（渐进渐出）：动画缓慢的进入，中间加速，然后减速的到达目的地。这个是默认的动画行为。
 
 
-###Animation Keys and Delegates
+##Animation Keys and Delegates
 
 * delegate
 
@@ -258,7 +258,7 @@ info.layer.animationKeys())
 获得动画的 keypath
 
 
-###Groups and Advanced Timing
+##Groups and Advanced Timing
 
 * Groups
 
@@ -311,6 +311,9 @@ self.circleLayer.fillColor = [UIColor clearColor].CGColor;                      
    
    
 ##Gradient Animations
+
+![Gradient Example](https://raw.githubusercontent.com/walkertree/iOS-Animations-by-treewalker/Gradient_Animations/Example.png)
+
    渐变色的动画：
    
    ```
@@ -350,3 +353,47 @@ self.circleLayer.fillColor = [UIColor clearColor].CGColor;                      
 
 ##Stroke and Path Animations
 
+CAShapeLayer 中的： 
+
+ * strokeStart ： 表示绘画的图形显示的范围，0 表示全显示， 1 表示全隐藏  （0-1 ： 绘画图形的比例）
+ * strokeEnd ：表示绘画的图形显示的范围，1 表示全显示， 0 表示全隐藏
+
+ ![Gradient Example](https://raw.githubusercontent.com/walkertree/iOS-Animations-by-treewalker/Stroke_and_Path_Animations/Example.png)
+ 
+ 旋转代码：
+ 
+    ```
+     CABasicAnimation *startAnimation = [CABasicAnimation animationWithKeyPath:@"strokeStart"];
+    startAnimation.fromValue = [NSNumber numberWithFloat:-0.5];
+    startAnimation.toValue = [NSNumber numberWithFloat:1.0];
+    
+    
+    CABasicAnimation *endAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+    endAnimation.fromValue = [NSNumber numberWithFloat:0];
+    endAnimation.toValue = [NSNumber numberWithFloat:1.0];
+    
+    CAAnimationGroup * storkeAnimationGroup = [CAAnimationGroup animation];
+    storkeAnimationGroup.duration = 1.5;
+    storkeAnimationGroup.repeatCount = 5;
+    storkeAnimationGroup.animations = @[startAnimation,endAnimation];
+    [ovalShapeLayer addAnimation:storkeAnimationGroup forKey:nil];
+    
+    
+    CAKeyframeAnimation *keyAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    keyAnimation.path = ovalShapeLayer.path;
+    keyAnimation.calculationMode = kCAAnimationPaced;
+    
+    CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotationAnimation.fromValue = [NSNumber numberWithFloat:0];
+    rotationAnimation.toValue = [NSNumber numberWithFloat:2 * M_PI];
+    
+    CAAnimationGroup * flyAnimationGroup = [CAAnimationGroup animation];
+    flyAnimationGroup.duration = 1.5;
+    flyAnimationGroup.repeatCount = 5;
+    flyAnimationGroup.animations = @[keyAnimation,rotationAnimation];
+    [imageLayer addAnimation:flyAnimationGroup forKey:nil];
+    
+ ```    
+ 
+   	* 上面表示旋转的代码。主要就是设置 strokeStart 和 strokeEnd 设置一个旋转的过程。 
+   * path 动画，可以根据获取到的绘图的 path，赋值给 CAKeyframeAnimation 进行动画的过程
