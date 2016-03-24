@@ -395,5 +395,5 @@ CAShapeLayer 中的：
     
  ```    
  
-   	* 上面表示旋转的代码。主要就是设置 strokeStart 和 strokeEnd 设置一个旋转的过程。 
-   * path 动画，可以根据获取到的绘图的 path，赋值给 CAKeyframeAnimation 进行动画的过程
+* 上面表示旋转的代码。主要就是设置 strokeStart 和 strokeEnd 设置一个旋转的过程。 
+* path 动画，可以根据获取到的绘图的 path，赋值给 CAKeyframeAnimation 进行动画的过程
